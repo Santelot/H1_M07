@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - H1 - M07</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- Actividad 1 (4 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo')">
+        <div class="title">
+            <span>👋 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+            <span>⏰ Tiempo: 2.5 minutos</span>
+        </div>
+        <div class="subtitle">Dar la bienvenida y preparar el ambiente</div>
+    </div>
+    <div id="saludo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 2 "Bienvenida"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hola, Genios. Hoy vamos a aprender cómo los prompts influyen en la inteligencia artificial y cómo podemos aprovecharlos mejor.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 3 "¿Cómo Están?"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Antes de comenzar, quiero saber cómo se sienten. Si están listos para aprender algo nuevo, levanten una mano. Si prefieren ir con calma, levanten ambas manos.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 4 "Gracias por Asistir"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Juntemos nuestras manos y hagamos una reverencia para agradecer el estar aquí. ¡Gracias por asistir!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 5 "Objetivos de la Misión"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hoy tenemos tres objetivos importantes: <br> 1. Introducir la ingeniería de prompts y su importancia. <br> 2. Explorar el impacto de los prompts en la IA. <br> 3. Desarrollar habilidades básicas para crear prompts efectivos.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 2 (3 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion')">
+        <div class="title">
+            <span>🚀 Actividad 2: Innovación del Día (3 pasos)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Explorar una herramienta innovadora como Notion AI</div>
+    </div>
+    <div id="innovacion" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 6 "Innovación del Día"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hoy vamos a hablar de Notion AI, una herramienta que usa la inteligencia artificial para automatizar tareas de organización y planificación. Lo interesante de Notion AI es cómo responde a los prompts que le damos, permitiendo crear y organizar contenido de manera eficiente.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1.5 minutos): Proyectar Diapositiva 7 "Funcionalidad de Notion AI"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Notion AI nos permite organizar y planificar con facilidad, pero lo más importante es la claridad de los prompts. Si le damos instrucciones específicas, Notion AI puede crear listas, organizar información e incluso redactar textos. Esto muestra cómo la ingeniería de prompts mejora la productividad, tanto en el ámbito personal como profesional.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 8 "Reflexión sobre Notion AI"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Lo interesante de Notion AI es que nos da un ejemplo claro de cómo los prompts detallados pueden transformar la interacción con cualquier IA. No solo estamos pidiendo tareas simples, sino que estamos guiando a la IA para que nos ofrezca resultados útiles y adaptados a nuestras necesidades.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 3 (10 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('braingym')">
+        <div class="title">
+            <span>🧠 Actividad 3: Brain Gym (10 pasos)</span>
+            <span>⏰ Tiempo: 14.5 minutos</span>
+        </div>
+        <div class="subtitle">Exploración de la ingeniería de prompts y su impacto en la IA</div>
+    </div>
+    <div id="braingym" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 9 "Introducción a la Ingeniería de Prompts"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Genios, en las clases anteriores ya exploramos cómo funciona la IA y algunos de los tipos más importantes de inteligencia artificial. Hoy vamos a adentrarnos en algo crucial para poder aprovechar la IA al máximo: la ingeniería de prompts. Imagina que la IA es como un genio de los deseos, pero para obtener el resultado que quieres, debes formular tu deseo de la manera correcta. La forma en que le das las instrucciones, o el prompt, puede marcar la diferencia entre obtener un buen resultado... o uno confuso. Vamos a aprender cómo perfeccionar nuestros 'deseos' para que la IA nos dé exactamente lo que necesitamos.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 10 "¿Qué es un Prompt?"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Piensen en un prompt como una carta que escriben a la IA, donde le dicen exactamente qué quieren que haga. Es como cuando le pides a alguien que te ayude en una tarea, mientras más claro seas, mejor será la ayuda que recibas. Por ejemplo, si le pides a un amigo que te traiga 'algo de comer', puede traerte cualquier cosa, pero si le especificas 'una hamburguesa sin pepinillos', es mucho más probable que te traiga lo que realmente quieres. Así funciona con los prompts en la IA, cuanto más detalle le des, mejores respuestas obtendrás. Es importante porque es la manera principal en la que interactuamos con modelos de lenguaje como ChatGPT. La palabra prompt viene del idioma inglés y significa causar o incitar a la acción. Lo que le decimos a la IA es lo que detona y dirige la acción que hará, de ahí el uso de la palabra.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1.5 minutos): Proyectar Diapositiva 11 "¿Qué es Prompt Engineering?"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora, hablemos de la ingeniería de prompts. Imagina que estás trabajando en un proyecto y la IA te responde algo que no tiene sentido o que no es lo que esperabas. ¿Qué haces? Aquí es donde entra la magia de la ingeniería de prompts. Este proceso consiste en mejorar el 'deseo', es decir, el prompt, para que la IA te dé una mejor respuesta. Como cuando intentas hacer una búsqueda en internet y no encuentras lo que necesitas, ajustas las palabras clave hasta que obtienes el resultado perfecto. Con ChatGPT, hacemos lo mismo. Cada vez que afinamos el prompt, logramos que la IA sea más precisa y útil.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (2 minutos): Proyectar Diapositiva 12 "Ejemplo con ArchaeologistAI"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Vamos a ver cómo funciona la ingeniería de prompts en acción. Imaginemos que estamos creando una IA ficticia llamada ArchaeologistAI, que cuenta historias sobre arqueólogos famosos. Al principio, le pedimos a ChatGPT que escriba un tweet sobre ArchaeologistAI sin darle muchos detalles, y el resultado es bueno, pero no perfecto. Nos damos cuenta de que necesitamos mejorar el prompt, entonces le agregamos más información. Ahora la IA sabe exactamente de qué se trata ArchaeologistAI y su respuesta es mucho más precisa. Pero vamos a llevarlo un paso más allá. Le pedimos que escriba el tweet al estilo de Indiana Jones, y ¡el resultado es increíble! Aquí podemos ver cómo, al ajustar el prompt, obtenemos respuestas más alineadas con lo que necesitamos.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (2 minutos): Proyectar Diapositiva 13 "Reflexión sobre el Ejemplo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                El ejemplo de ArchaeologistAI nos enseña algo importante: las IAs, como ChatGPT, pueden darnos respuestas muy diferentes dependiendo de lo bien que estructuremos nuestros prompts. Si le damos una instrucción vaga, el resultado será vago. Pero si detallamos claramente lo que queremos, la IA puede darnos respuestas mucho más útiles y específicas. Y lo mejor es que, al experimentar y probar diferentes versiones del mismo prompt, podemos encontrar la respuesta perfecta. Así que recuerden: no siempre acertarán en el primer intento, pero con la práctica, podrán afinar los prompts hasta obtener lo que necesitan.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (2 minutos): Proyectar Diapositiva 14 "Instruction Prompting"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora que entendemos cómo funciona la ingeniería de prompts, vamos a ver una técnica muy útil llamada Instruction Prompting. Aquí no solo estamos pidiendo respuestas simples, sino que le damos a la IA instrucciones claras y detalladas para que realice una tarea más compleja. Piensen en esto como darle a alguien una receta para cocinar algo. Si le dices a tu amigo 'hazme una pizza', puede hacer cualquier tipo de pizza, pero si le das instrucciones precisas, como 'hazme una pizza con masa delgada, queso mozzarella y pepperoni', el resultado será exactamente lo que querías. Con la IA, pasa lo mismo. Entre más clara sea la instrucción, mejor será el resultado.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (2 minutos): Proyectar Diapositiva 15 "Organización de Nombres"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Vamos a ver un ejemplo específico de Instruction Prompting. Digamos que tienes una lista de nombres y algunos están en un formato incorrecto. Puedes darle a la IA la instrucción de corregir estos nombres y ponerlos en el formato adecuado, como 'Apellido, Nombre'. Esta es una tarea que normalmente tomaría tiempo y sería algo tediosa si tuvieras que hacerlo manualmente. Pero con la IA, en cuestión de segundos, tendrás la lista organizada. Este es solo uno de los muchos usos prácticos de esta técnica. La IA puede automatizar tareas que antes eran largas y repetitivas, dándote más tiempo para concentrarte en otras cosas.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (2 minutos): Proyectar Diapositiva 16 "Eliminación de Información Personal"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Otro uso de Instruction Prompting es cuando necesitamos eliminar información personal de documentos. Imagina que una empresa necesita compartir un documento, pero primero debe eliminar datos privados, como nombres, números de teléfono o correos electrónicos. Con la IA, podemos darle instrucciones claras para que elimine esta información y la reemplace con etiquetas como '[NOMBRE]' o '[TELÉFONO]'. Esto no solo ahorra tiempo, sino que reduce el riesgo de errores, ya que la IA sigue las instrucciones de manera precisa. Este tipo de tareas antes requería mucha supervisión humana, pero ahora podemos automatizarlas.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (1.5 minutos): Proyectar Diapositiva 17 "Reflexión sobre Instruction Prompting"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Lo interesante de la IA es que no solo responde a preguntas simples. Con Instruction Prompting, podemos darle instrucciones para que realice tareas que antes nos tomaban mucho tiempo. Desde organizar datos hasta eliminar información personal, la IA puede hacerlo de manera eficiente y rápida. Esta técnica será clave en el futuro, especialmente en áreas donde la precisión y la velocidad son cruciales, como en empresas y gobiernos. Aprender a manejar bien estos prompts nos abrirá muchas puertas en el mundo laboral.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 10 (1 minuto): Proyectar Diapositiva 18 "Revisión de Objetivos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hasta ahora hemos cubierto dos de los tres objetivos del día: 1. Introdujimos la ingeniería de prompts y su importancia. 2. Exploramos el impacto de los prompts en la IA. El último objetivo lo completaremos más adelante en el Challenge, donde ustedes aplicarán lo aprendido hoy. ¡Sigamos adelante, Genios!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 4 (3 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('statechange')">
+        <div class="title">
+            <span>🏃‍♂️ Actividad 4: State Change (3 pasos)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Activar el cuerpo con una caminata rápida</div>
+    </div>
+    <div id="statechange" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 19 "Caminata Rápida"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Vamos a activar nuestro cuerpo y nuestra mente con una caminata rápida por el aula. Les voy a dar 1 minuto para que caminen rápido, pero con cuidado, asegurándose de moverse por todo el espacio.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 20 con un cronómetro de 1 minuto</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 21 "Beneficios de la Caminata Rápida"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Esta caminata rápida nos ayuda a activar la circulación y la energía física. Al movernos, le damos a nuestro cuerpo el impulso que necesita para concentrarse mejor y estar más alertas para la siguiente actividad. ¡Bien hecho, Genios!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 5 (4 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('teamgnius')">
+        <div class="title">
+            <span>👥 Actividad 5: Team Gnius (4 pasos)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Formación de parejas para el próximo desafío</div>
+    </div>
+    <div id="teamgnius" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 22 "Formación de Parejas"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Genios, para el próximo desafío, quiero que formen parejas con alguien diferente a quien trabajaron la última vez. Tómense un minuto para elegir a su compañero. ¡Vamos a trabajar juntos!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 23 con un cronómetro de 1 minuto</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 24 "Recoger Magic Tablets"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora que ya tienen sus parejas, un representante de cada equipo pase al frente a recoger una Magic Tablet para que puedan tomar notas durante el challenge. Tienen 1 minuto.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 25 con un cronómetro de 1 minuto</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 6 (10 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">
+            <span>⚔️ Actividad 6: Challenge (10 pasos)</span>
+            <span>⏰ Tiempo: 15 minutos</span>
+        </div>
+        <div class="subtitle">Aplicando la ingeniería de prompts en ChatGPT</div>
+    </div>
+    <div id="challenge" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 26 "Challenge: Ingeniería de Prompts"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hoy vamos a dar nuestro primer 'clavado' en la ingeniería de prompts. Les voy a mostrar dos ejemplos de prompts normales, junto con sus versiones mejoradas. Ustedes deberán probar ambos en ChatGPT, tomar notas y analizar cómo cambian los resultados. El desafío es descomponer un buen prompt para descubrir su 'anatomía'. ¿Qué elementos tiene un buen prompt? ¿Por qué la versión mejorada funciona mejor?
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 27 "Ejemplos de Prompts"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Aquí tienen los dos ejemplos de prompts y sus versiones mejoradas. Vamos a ingresarlos en ChatGPT y observar cómo cambian las respuestas. Tomen notas sobre las diferencias en sus Magic Tablets.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (5 minutos): Proyectar Diapositiva 28 con un cronómetro de 5 minutos</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 29 "Tercer Prompt"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora les voy a mostrar un tercer prompt normal. A diferencia de los anteriores, esta vez no les mostraré la versión mejorada. Su tarea es mejorarlo basándose en lo que observaron en los primeros dos ejemplos. Tienen 10 minutos para hacerlo.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (5 minutos): Proyectar Diapositiva 30 con un cronómetro de 5 minutos</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (0.5 minutos): Proyectar Diapositiva 31 "Comparar Prompts"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora que han mejorado el tercer prompt, júntense con la pareja más cercana y comparen sus versiones. Discutan qué elementos añadieron o modificaron y cómo creen que eso afectará la respuesta de ChatGPT.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (5 minutos): Proyectar Diapositiva 32 con un cronómetro de 5 minutos</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (0.5 minutos): Proyectar Diapositiva 33 "Versión Mejorada del Tercer Prompt"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Aquí tienen la versión mejorada del tercer prompt. Compárenla con lo que ustedes crearon y vean en qué coincidieron o qué pueden aprender de este ejemplo. Vamos a seguir practicando la ingeniería de prompts y aprendiendo nuevas técnicas. Pero por ahora, podemos concluir nuestro Challenge del día de hoy.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (1 minuto): Proyectar Diapositiva 34 "Revisión de Objetivos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hemos logrado completar todos los objetivos de la misión. 1. Introdujimos la ingeniería de prompts. 2. Exploramos el impacto de los prompts en la IA. 3. Desarrollamos habilidades básicas para crear prompts efectivos. ¡Gran trabajo!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 10 (0.5 minutos): Proyectar Diapositiva 35 "You've Got Mon-e"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Y como siempre, gracias a su gran esfuerzo, ¡les toca Mon-e!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 7 (3 pasos) -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('easteregg')">
+        <div class="title">
+            <span>🎉 Actividad 7: Easter Egg (3 pasos)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Dinámica de pregunta sorpresa para ganar Mon-e</div>
+    </div>
+    <div id="easteregg" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 36 "Easter Egg - Pregunta"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Genios, llegó el momento de ver quién ha estado prestando atención. La siguiente diapositiva tiene una pregunta sobre algo que discutimos hoy. Voy a premiar con Mon-e a las tres primeras personas que me den la respuesta correcta. Recuerden, la dinámica es la siguiente: en cuanto pase a la siguiente diapositiva, lean la pregunta y si saben la respuesta, levanten la mano. No digan la respuesta en voz alta, solo levanten la mano. Yo seleccionaré a 3 de ustedes. ¿Listos?
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 37 "Pregunta: ¿Cuál es el significado de la palabra 'Prompt'?"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Uno, dos, tres. Levanten la mano si saben la respuesta. ¡Muy bien! Vamos a escuchar lo que tienen que decir.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 38 "Respuesta Correcta"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Uno, ven y dime la respuesta al oído. Ahora tú, dos. Y por último, el tres. La respuesta correcta es que la palabra 'prompt' significa causar o incitar a la acción. ¡Muy bien, a los ganadores les toca Mon-e!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 8 (1 paso) -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honorthedojo')">
+        <div class="title">
+            <span>🏅 Actividad 8: Honor the Dojo (1 paso)</span>
+            <span>⏰ Tiempo: 1 minuto</span>
+        </div>
+        <div class="subtitle">Ordenar el espacio de trabajo antes de finalizar</div>
+    </div>
+    <div id="honorthedojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 39 "Honor the Dojo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Genios, como siempre, es momento de honrar nuestro espacio de trabajo. Por favor, regresen las Magic Tablets y asegúrense de que el aula quede ordenada antes de salir.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
